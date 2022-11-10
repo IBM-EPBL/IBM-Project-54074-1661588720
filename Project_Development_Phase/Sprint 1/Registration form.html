@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style type="text/css">
+        body{
+            margin: 10px 10px 10px 100px;
+            background-color: aliceblue;
+           
+        }
+
+        .error {
+            color: red;
+        }
+
+        .fm1 {
+            text-align: center;
+        }
+
+        .lb1 {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .lb2 {
+            margin-left: 20px;
+        }
+
+        .lb3 {
+            margin-right: 35px;
+        }
+
+        .container {
+            display: block;
+        }
+        .k{
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <?php
+include 'header.php';
+?>
+           
+    <div class="heading fix">
+        <label class="lb1">REGISTRATION</label>
+    </div>
+    <div class="outerbox">
+        <div class="fixedbox">
+            <span class="content">
+                <h4>Hello, Friend!</h4>
+                <p>Enter your personal details and start journey with us</p>
+            </span>
+        </div>
+        <div class="scrollbox">
+            <div class="registerdonor">
+                <form action="process.php" method="POST" id="myform">
+                    <div class="login">
+                        <h3>Login Details</h3>
+                        <table class="fm1">
+                            <tr>
+                                <td colspan="2">
+                                    <label class="lb1" class="username">User Name:-</label>
+                                    <input type="text" name="user_name" required pattern="^[A-Za-z0-9._%+-@]{5,10}$"
+                                        title="Enter a username between 5 to 10 letter" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="lb1">Full Name:-</label>
+                                    <input type="text" name="user_full_name" required pattern="[A-z ]+$"
+                                        title="Use only character & whitespace" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="lb1">Email Id:-</label>
+                                    <input type="email" name="user_email" required
+                                        pattern="[A-Za-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]{2,}$"
+                                        title="Email id is not Valid" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="lb1">Password:-</label>
+                                    <input type="password" name="password" required
+                                        pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,}"
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+                                        id="password" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Confirm Password:-</label>
+                                    <input type="text" name="confirm_password" required
+                                        pattern="(?=.\d)(?=.[a-z])(?=.*[A-Z]).{6,}"
+                                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+                                        id="confirm_password" autocomplete="off">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="container">
+                        <h3>Contact Details</h3>
+                        <table class="fm1">
+                            <tr>
+                                <td>
+                                    <label>Mobile Number:-</label>
+                                    <input type="text" name="user_number" required pattern="^[1-9]{1}[0-9]{9}$"
+                                        title="Number is not valid" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="lb1">Pincode</label>
+                                    <input type="text" name="pincode" required pattern="^[0-9]{6}$"
+                                        title="Pincode is not valid" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="1">
+                                    <label class="lb1">Address:-</label>
+                                    <textarea name="Address" placeholder="follow with pincode" required></textarea>
+                                </td>
+                            </tr>
+
+                            <!-- <tr>
+                                <td>
+                                    <label class="lb1">City:-</label >
+                                    <input type="text" name="city">
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td>
+                                    <label class="lb1">State:-</label>
+                                    <input type="text" name="state">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="personal">
+                        <h3>Personal Details</h3>
+                        <table class="fm1">
+                            <tr>
+                                <td>
+                                    <label>Date Of Birth:-</label>
+                                    <input type="date" name="date_of_birth" required autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="radio">
+                                        <label class="lb3">Gender:-</label>
+                                        <input type="radio" name="gender" class="radio1" value="Male"><span
+                                            class="radioname" required autocomplete="off">Male</span>
+                                        <input type="radio" class="radio2" name="gender" value="Female"><span
+                                            class="radioname" required autocomplete="off">Female</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="lb1">Blood Group</label>
+                                    <input type="text" list="bloodgroup" name="blood_group" placeholder="----Select----"
+                                        required autocomplete="off">
+                                    <datalist id="bloodgroup">
+                                        <option value="A+"></option>
+                                        <option value="A-"></option>
+                                        <option value="AB+"></option>
+                                        <option value="B+"></option>
+                                        <option value="B-"></option>
+                                        <option value="O+"></option>
+                                        <option value="O-"></option>
+                                    </datalist>
+                                </td>
+                                <!-- <tr>
+                                <td>
+                                    <label class="lb1">Plasma Type</label >
+                                    <input type="text" list="plasmatype" name="plasma_type" placeholder="----Select----"
+                                        required autocomplete="off">
+                                    <datalist id="plasmatype">
+                                        <option value="Hot"></option>
+                                        <option value="Warm"></option>
+                                        <option value="Cold"></option>
+                                        <option value="Ultra Cold"></option>
+                                    </datalist>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td>
+                                    <label class="lb1">Weight In Kg :-</label>
+                                    <input type="number" name="weight" required autocomplete="off">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <p class="lb2"><input type="checkbox" name="terms" id="checkbox" required autocomplete="off">
+                        <!-- I agree to have my contact details broadcasted to the registered donors of PGHS.net -->
+                        I agree that the above details are true </p>
+
+                    <input type="reset" class="lb2 k" name="submit" value="Reset">
+                    <a href="login.html">
+                        <input type="button" class="lb2 k" onclick="href='login.html';" value="Submit"></a>
+            </div>
+            </form>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Responsive table  -->
+    <div class="rregisterdonor">
+        <form action="process.php" method="POST" id="myform">
+
+
+</html>
