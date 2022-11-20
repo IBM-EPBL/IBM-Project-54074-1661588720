@@ -1,0 +1,81 @@
+html{
+    scroll-behavior: smooth;
+ }
+ *::selection{
+    color: #000000;
+    background-color:#505050;
+ }body{
+    background: url(https://www.bentoli.com/wp-content/uploads/2017/07/CommercialFarming-1.jpg) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0%;
+   
+    
+}
+.logform{
+    
+    background-color:lightgrey;
+    display: inline-block;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    opacity: 0.8;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0,0.3);
+  
+} 
+.profilePic{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    top:-50px;
+    left:calc(50% - 50px);
+  
+   
+    
+}
+a{
+    text-decoration: none;
+    line-height: 50px;
+    
+}
+a:hover{
+    text-decoration:underline;
+    color:green
+}
+
+
+input[type='text'],input[type='password'],input[type="email"]{
+    border: none;
+    background: transparent;
+    border-bottom:1px solid #fff;
+    outline-style: none;
+}
+
+
+
+input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* ============================================== submit button ===================================== */
+
+.submitButton:active{
+     transform: scale(1.1);
+}
+
+/* -------------------------------------------------------- */
+.sub-btn,.reset-btn{
+ 
+    width: 100px;
+    border: 0px;
+    border-radius:5px ;
+    background-color: green;
+    padding: 5px;
+}

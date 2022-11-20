@@ -1,0 +1,64 @@
+html{
+    scroll-behavior: smooth;
+}
+*::selection{
+    color: #000000;
+    background-color:#505050;
+ }
+
+ul{
+    list-style: none
+}
+a{
+    text-decoration: none;
+  
+}
+body{
+    background: url(https://res.cloudinary.com/dtpgi0zck/image/upload/s--KuHP6sEY--/c_fill,h_580,w_860/v1/EducationHub/photos/crops-growing-in-thailand.jpg) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #f6f5f5;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+   
+    
+}
+/* --------------------------------------------- home page link ---------------------------------------------*/
+.homepage-link a{
+    text-align: center;
+    background-color: #06370c;
+    color: #fff;
+    width: 350px;
+   font-weight:bolder;
+   font-size: 30px;
+   border-radius: 15px;
+    padding: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+    opacity: 0.7;
+    
+   
+}
+.homepage-link a:hover{
+    color: #000;
+}
+.homepage-link:active{
+    transform: scale(1.05);
+}
+/* -------------------------------------------------------------------------------------------------------- */
+.ws-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;}
+.ws{
+    width: 90%;
+    height: 10000px;
+    background-color: #fff;
+    margin: 40px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0,0.3);
+   
+}
